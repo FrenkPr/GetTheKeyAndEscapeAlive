@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<gameConfig>
+	<windowConfig>
+		<windowSize width="1920" height="1080" stringValue="1920x1080" />
+		<fullScreen boolValue="false" stringValue="NO" />
+
+		<windowResizeValues>
+			<value width="800" height="600" stringValue="800x600" />
+			<value width="1280" height="720" stringValue="1280x720" />
+			<value width="1920" height="1080" stringValue="1920x1080" />
+		</windowResizeValues>
+
+		<windowFullScreenValues>
+			<value boolValue="false" stringValue="NO" />
+			<value boolValue="true" stringValue="YES" />
+		</windowFullScreenValues>
+	</windowConfig>
+
+	<keysConfig>
+		<keys id="player1">
+			<interact type="keyCode" value="87" /> <!--key: E-->
+			<confirm type="keyCode" value="49" /> <!--key: Return-->
+			<goBack type="keyCode" value="50" /> <!--key: Esc-->
+			<openPauseMenu type="keyCode" value="50" /> <!--key: Esc-->
+		</keys>
+
+		<keyBindings>
+			A = 83,
+			B = 84,
+			C = 85,
+			D = 86,
+			E = 87,
+			F = 88,
+			G = 89,
+			H = 90,
+			I = 91,
+			J = 92,
+			K = 93,
+			L = 94,
+			M = 95,
+			N = 96,
+			O = 97,
+			P = 98,
+			Q = 99,
+			R = 100,
+			S = 101,
+			T = 102,
+			U = 103,
+			V = 104,
+			W = 105,
+			X = 106,
+			Y = 107,
+			Z = 108,
+			Space = 51,
+			Enter = 49,
+			Esc = 50,
+			Up_arrow = 45,
+			Down_arrow = 46,
+			Left_arrow = 47,
+			Right_arrow = 48,
+			Right_shift = 2,
+			Left_shift = 1,
+			Ctrl_right = 4,
+			Ctrl_left = 3,
+			Keypad_0 = 67,
+			Keypad_1 = 68,
+			Keypad_2 = 69,
+			Keypad_3 = 70,
+			Keypad_4 = 71,
+			Keypad_5 = 72,
+			Keypad_6 = 73,
+			Keypad_7 = 74,
+			Keypad_8 = 75,
+			Keypad_9 = 76,
+			0 = 109,
+			1 = 110,
+			2 = 111,
+			3 = 112,
+			4 = 113,
+			5 = 114,
+			6 = 115,
+			7 = 116,
+			8 = 117,
+			9 = 118,
+			F1 = 10,
+			F2 = 11,
+			F3 = 12,
+			F4 = 13,
+			F5 = 14,
+			F6 = 0xF,
+			F7 = 0x10,
+			F8 = 17,
+			F9 = 18,
+			F10 = 19,
+			Tab = 52
+		</keyBindings>
+	</keysConfig>
+
+	<playerConfig>
+		<playerTypes>
+			<playerType1 name="Adventurer" />
+			<playerType2 name="Dog" />
+			<playerType3 name="Princess" />
+		</playerTypes>
+	
+		<currentPlayerType name="Adventurer" />
+	</playerConfig>
+</gameConfig>
