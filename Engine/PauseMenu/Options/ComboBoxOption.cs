@@ -317,21 +317,41 @@ namespace TopDownGame
                 //end options to display init
 
                 //option values init
-                if (optionValues is List<string> options)
+                if (optionValues is List<string> stringOptions)
                 {
-                    options.Add(XmlUtilities.GetStringAttribute(xmlNodeList[i], optionValuesAttributeName));
+                    stringOptions.Add(XmlUtilities.GetStringAttribute(xmlNodeList[i], optionValuesAttributeName));
 
-                    if (options[i] == XmlUtilities.GetStringAttribute(currentOptionNode, optionValuesAttributeName))
+                    if (stringOptions[i] == XmlUtilities.GetStringAttribute(currentOptionNode, optionValuesAttributeName))
                     {
                         startOptionIndex = i;
                     }
                 }
 
-                else if (optionValues is List<bool> _options)
+                else if (optionValues is List<bool> boolOptions)
                 {
-                    _options.Add(XmlUtilities.GetBoolAttribute(xmlNodeList[i], optionValuesAttributeName));
+                    boolOptions.Add(XmlUtilities.GetBoolAttribute(xmlNodeList[i], optionValuesAttributeName));
 
-                    if (_options[i] == XmlUtilities.GetBoolAttribute(currentOptionNode, optionValuesAttributeName))
+                    if (boolOptions[i] == XmlUtilities.GetBoolAttribute(currentOptionNode, optionValuesAttributeName))
+                    {
+                        startOptionIndex = i;
+                    }
+                }
+
+                else if (optionValues is List<float> floatOptions)
+                {
+                    floatOptions.Add(XmlUtilities.GetFloatAttribute(xmlNodeList[i], optionValuesAttributeName));
+
+                    if (floatOptions[i] == XmlUtilities.GetFloatAttribute(currentOptionNode, optionValuesAttributeName))
+                    {
+                        startOptionIndex = i;
+                    }
+                }
+
+                else if (optionValues is List<float> intOptions)
+                {
+                    intOptions.Add(XmlUtilities.GetFloatAttribute(xmlNodeList[i], optionValuesAttributeName));
+
+                    if (intOptions[i] == XmlUtilities.GetFloatAttribute(currentOptionNode, optionValuesAttributeName))
                     {
                         startOptionIndex = i;
                     }

@@ -37,7 +37,7 @@ namespace TopDownGame
                 TextureMngr.AddTexture(actorNames[i], $"Assets/SPRITES/HEROS/spritesheets/{actorNames[i]}/HEROS8bit_{actorNames[i]} Idle D.png");
             }
 
-            TextureMngr.AddTexture("frame", "Assets/frame.jpg");
+            TextureMngr.AddTexture("frame", "Assets/Images/frame.jpg");
         }
 
         public override void Start()

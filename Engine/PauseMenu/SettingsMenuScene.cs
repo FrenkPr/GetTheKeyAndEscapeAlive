@@ -12,11 +12,13 @@ namespace TopDownGame
     {
         private ComboBoxOption<TextObject, string> resizeWindowOption;
         private ComboBoxOption<TextObject, bool> fullScreenOption;
+        private ComboBoxOption<TextObject, float> toggleMusicVolumeOption;
         private TextObject applySettings;
         private TextObject settingsTextObject;
 
         private XmlNode currentWindowSizeNode;
         private XmlNode currentFullscreenValueNode;
+        private XmlNode currentMusicVolumeValueNode;
 
         public SettingsMenuScene()
         {
@@ -32,7 +34,7 @@ namespace TopDownGame
             Vector2 menuPos = new Vector2(0.5f, 1.5f);
             PreviousMenu = new MainMenuScene();
 
-            //title menu text (head)
+            //title menu text (header)
             settingsTextObject = new TextObject("SETTINGS", new Vector2(Game.OrthoHalfWidth, 0.1f), DrawingType.PauseMenu, UpdatingType.PauseMenu);
             settingsTextObject.EditPosition(new Vector2(settingsTextObject.Position.X - settingsTextObject.GetTextWidth() * 0.5f, settingsTextObject.Position.Y));
 
@@ -47,6 +49,9 @@ namespace TopDownGame
 
             //CHANGE FULLSCREEN OPTION
             ComboBoxOption<TextObject, bool>.AddEditableOption(out fullScreenOption, out currentFullscreenValueNode, "windowFullScreenValues", "fullScreen", "stringValue", "boolValue", "FULLSCREEN ", ref menuPos);
+
+            //TOGGLE MUSIC VOLUME OPTION
+            ComboBoxOption<TextObject, float>.AddEditableOption(out toggleMusicVolumeOption, out currentMusicVolumeValueNode, "musicVolumeValues", "musicVolume", "stringValue", "volumeValue", "MUSIC VOLUME ", ref menuPos);
 
 
 
@@ -75,6 +80,7 @@ namespace TopDownGame
             {
                 string[] newWindowSize = resizeWindowOption.CurrentOptionValue.Split('x');
 
+                //updates fullscreen settings
                 if (fullScreenOption.CurrentOptionValue)  //if we gotta set the window to fullscreen
                 {
                     Game.Window.Position = Game.StartWindowPosition;
@@ -82,6 +88,7 @@ namespace TopDownGame
                     Game.Window.SetResolution(int.Parse(newWindowSize[0]), int.Parse(newWindowSize[1]));
                 }
 
+                //updates window size settings
                 else
                 {
                     Game.Window.Position = Vector2.Zero;
@@ -90,17 +97,27 @@ namespace TopDownGame
                 }
 
                 Game.Window.SetSize(int.Parse(newWindowSize[0]), int.Parse(newWindowSize[1]));
-                
+
                 CameraMngr.OnChangeWindowSize();
                 OnChangeWindowSizeMngr.OnChangeWindowSize();
 
+                //updates music volume settings
+                SoundEmitter.SetAudioVolume(toggleMusicVolumeOption.CurrentOptionValue);
+
                 //UPDATING XML GAME CONFIG ATTRIBUTES
+
+                //"windowSize" node
                 currentWindowSizeNode.Attributes[0].Value = newWindowSize[0];
                 currentWindowSizeNode.Attributes[1].Value = newWindowSize[1];
                 currentWindowSizeNode.Attributes[2].Value = resizeWindowOption.CurrentOptionToDisplay.Text;
 
+                //"fullscreen" node
                 currentFullscreenValueNode.Attributes[0].Value = fullScreenOption.CurrentOptionValue.ToString();
                 currentFullscreenValueNode.Attributes[1].Value = fullScreenOption.CurrentOptionToDisplay.Text;
+
+                //"musicVolume" node
+                currentMusicVolumeValueNode.Attributes[0].Value = toggleMusicVolumeOption.CurrentOptionValue.ToString();
+                currentMusicVolumeValueNode.Attributes[1].Value = toggleMusicVolumeOption.CurrentOptionToDisplay.Text;
 
                 Game.XmlGameConfigDoc.Save("Assets/CONFIG/GameConfig.xml");
 

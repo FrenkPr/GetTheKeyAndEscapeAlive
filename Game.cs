@@ -41,6 +41,7 @@ namespace TopDownGame
 
         public static void Init()
         {
+            //init XML nodes and files
             XmlGameConfigDoc = InitXmlDoc("Assets/CONFIG/GameConfig.xml");
 
             XmlNode windowConfigNode = XmlGameConfigDoc.GetElementsByTagName("windowConfig")[0];
@@ -48,6 +49,9 @@ namespace TopDownGame
             XmlNode windowSize = windowConfigNode.SelectSingleNode("windowSize");
             XmlNode windowFullScreen = windowConfigNode.SelectSingleNode("fullScreen");
 
+            XmlNode audioVolumeNode = XmlGameConfigDoc.GetElementsByTagName("musicVolume")[0];
+
+            //init window based on settings
             Window = new Window(1920, 1080, "Get The Key And Escape Alive");
             Window.Position = Vector2.Zero;
             Window.SetDefaultViewportOrthographicSize(10);
@@ -65,8 +69,24 @@ namespace TopDownGame
             optimalScreenHeight = 1080;
             optimalUnitSize = optimalScreenHeight / Window.OrthoHeight;
 
+            //sets opened application icon
+            Window.SetIcon("Assets/Images/exeIcon.ico");
+
             InitControllers(NumMaxPlayers);
 
+            //global audio clips init
+            SoundMngr.AddClip("mainLoopMusic", "Assets/Audio/Frenk Mochi - The Final Show base with choirs.wav", true);
+
+            //global audio sources init
+            SoundEmitter.InitAudioSources(true);
+
+            //init music volume based on settings
+            SoundEmitter.GlobalAudioSources["mainLoopMusicSource"] = new SoundEmitter(null, "mainLoopMusic");
+            SoundEmitter.GlobalAudioSources["mainLoopMusicSource"].Play(true);
+
+            SoundEmitter.SetAudioVolume(XmlUtilities.GetFloatAttribute(audioVolumeNode, "volumeValue"));
+
+            //loads title scene on game opening
             CurrentScene = new TitleScene();
         }
 

@@ -16,6 +16,15 @@
 		</windowFullScreenValues>
 	</windowConfig>
 
+	<musicSettings>
+		<musicVolume volumeValue="1" stringValue="YES" />
+		
+		<musicVolumeValues>
+			<value volumeValue="0" stringValue="NO" />
+			<value volumeValue="1" stringValue="YES" />
+		</musicVolumeValues>
+	</musicSettings>
+
 	<keysConfig>
 		<keys id="player1">
 			<interact type="keyCode" value="87" /> <!--key: E-->

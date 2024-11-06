@@ -50,7 +50,13 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Assets\Images\exeIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="aiv-audio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Aiv.Audio.0.2.2\lib\net40\aiv-audio.dll</HintPath>
+    </Reference>
     <Reference Include="aiv-fast2d, Version=1.0.7820.23607, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Aiv.Fast2D.1.0.4\lib\net48\aiv-fast2d.dll</HintPath>
     </Reference>
@@ -87,6 +93,7 @@
     <Compile Include="Engine\Colliders\CompoundCollider.cs" />
     <Compile Include="Engine\Components\Animation.cs" />
     <Compile Include="Engine\Components\Component.cs" />
+    <Compile Include="Engine\Components\SoundEmitter.cs" />
     <Compile Include="Engine\Controllers\Controller.cs" />
     <Compile Include="Engine\Controllers\KeyboardController.cs" />
     <Compile Include="Engine\Controllers\MouseController.cs" />
@@ -105,6 +112,7 @@
     <Compile Include="Engine\Managers\FontMngr.cs" />
     <Compile Include="Engine\Managers\OnChangeWindowSizeMngr.cs" />
     <Compile Include="Engine\Managers\PhysicsMngr.cs" />
+    <Compile Include="Engine\Managers\SoundMngr.cs" />
     <Compile Include="Engine\Managers\TextureMngr.cs" />
     <Compile Include="Engine\Managers\UpdateMngr.cs" />
     <Compile Include="Engine\PathFinding\Agent.cs" />
@@ -164,13 +172,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\exeIcon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\Frenk Mochi - The Final Show base with choirs.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\CONFIG\GameConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\FONTS\comics.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\frame.jpg">
+    <Content Include="Assets\Images\frame.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\SPRITES\HEROS\spritesheets\Adventurer\HEROS8bit_Adventurer Idle D.png">
@@ -233,6 +247,7 @@
     <Content Include="Assets\TILESET\PixelPackTOPDOWN8BIT.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="exeIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
@@ -246,6 +261,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
