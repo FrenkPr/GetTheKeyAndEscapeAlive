@@ -247,7 +247,6 @@
     <Content Include="Assets\TILESET\PixelPackTOPDOWN8BIT.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="exeIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

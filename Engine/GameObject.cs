@@ -4,7 +4,7 @@ using System;
 
 namespace TopDownGame
 {
-    class GameObject : /*GameObject,*/ IDrawable, IUpdatable, ICloneable
+    class GameObject : IDrawable, IUpdatable, ICloneable
     {
         protected Texture texture;
         protected string textureId;
@@ -35,15 +35,6 @@ namespace TopDownGame
 
         public int NumFrames { get; }
         public int CurrentFrame;
-
-        //protected Texture texture;
-        //protected string textureId;
-
-        //public Vector2 Forward;
-        //public Vector2 LastForward;
-
-        //public int NumFrames { get; }
-        //public int CurrentFrame;
 
         public GameObject(string textureId, int numFrames = 1, float spriteWidth = 0, float spriteHeight = 0, DrawLayer dLayer = DrawLayer.Playground, DrawingType dType = DrawingType.Play, UpdatingType uType = UpdatingType.Play, Vector4? color = null)
         {

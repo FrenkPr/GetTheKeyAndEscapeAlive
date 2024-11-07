@@ -26,7 +26,7 @@ namespace TopDownGame
 
         private void TogglePauseMenu()
         {
-            if (Game.KeyboardCtrl.OnKeyPressed(KeyCodeType.OpenPauseMenu))
+            if (Game.KeyboardCtrl.OnKeyPressed(KeyCodeType.TogglePauseMenu))
             {
                 if (!isPauseMenuValuePressed)
                 {

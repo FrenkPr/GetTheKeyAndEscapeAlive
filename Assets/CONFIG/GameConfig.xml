@@ -30,7 +30,7 @@
 			<interact type="keyCode" value="87" /> <!--key: E-->
 			<confirm type="keyCode" value="49" /> <!--key: Return-->
 			<goBack type="keyCode" value="50" /> <!--key: Esc-->
-			<openPauseMenu type="keyCode" value="50" /> <!--key: Esc-->
+			<togglePauseMenu type="keyCode" value="50" /> <!--key: Esc-->
 		</keys>
 
 		<keyBindings>

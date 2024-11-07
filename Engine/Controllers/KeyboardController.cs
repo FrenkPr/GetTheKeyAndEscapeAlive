@@ -14,7 +14,7 @@ namespace TopDownGame
         Interact,
         Confirm,
         GoBack,
-        OpenPauseMenu
+        TogglePauseMenu
     }
 
     struct KeyboardConfig
@@ -69,6 +69,11 @@ namespace TopDownGame
                     KeyString[(KeyCode)Convert.ToInt32(keyBindings[i + 1], 16)] = keyBindings[i];
                 }
             }
+        }
+
+        public string KeyToString(KeyCodeType keyBinded)
+        {
+            return Game.KeyboardCtrl.KeyString[Game.KeyboardCtrl.Keys.KeyCode[keyBinded]];
         }
 
         //key holding dipendent from keyboard controllers

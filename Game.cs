@@ -126,7 +126,7 @@ namespace TopDownGame
                 keyNodes.Add(playersKeyConfingNodes[i].SelectSingleNode("interact"));
                 keyNodes.Add(playersKeyConfingNodes[i].SelectSingleNode("confirm"));
                 keyNodes.Add(playersKeyConfingNodes[i].SelectSingleNode("goBack"));
-                keyNodes.Add(playersKeyConfingNodes[i].SelectSingleNode("openPauseMenu"));
+                keyNodes.Add(playersKeyConfingNodes[i].SelectSingleNode("togglePauseMenu"));
 
                 keysConfig[i] = new List<KeyCode>();
 

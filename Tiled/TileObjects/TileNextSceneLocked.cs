@@ -84,7 +84,7 @@ namespace TopDownGame
 
             else if (IsLocked && PlayerGotTheKey)
             {
-                keyInfo.EditText($"Press {Game.KeyboardCtrl.KeyString[Game.KeyboardCtrl.Keys.KeyCode[KeyCodeType.Interact]]} to open the door.");
+                keyInfo.EditText($"Press {Game.KeyboardCtrl.KeyToString(KeyCodeType.Interact)} to open the door.");
                 keyInfo.EditPosition(new Vector2(Game.ScreenCenter.X - keyInfo.GetTextWidth() * 0.5f, Game.OrthoHeight - 0.5f));
                 keyInfo.InitGUICamera();
                 keyInfo.IsActive = true;
